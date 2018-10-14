@@ -1,3 +1,4 @@
+import datetime
 import serial
 import pynmea2
 import RPi.GPIO as GPIO
@@ -6,25 +7,39 @@ import sqlite3
 import time
 import os
 
+
+#global matricula
+
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(12, GPIO.OUT)
 GPIO.setup(16, GPIO.OUT)
 GPIO.setup(18, GPIO.OUT)
 
-#bd = os.path.dirname(__file__)+'\data\gps.db'
-host = socket.gethostname()
+matricula = socket.gethostname()
 con = sqlite3.connect("./data/gps.db")
 cursor = con.cursor()
 
+cursor.execute("SELECT count(*) from LECTURAS")
+id = cursor.fetchone()[0]
+if id != 0:
+	id = id +1
+	print "comprueba datos %s" % id
+else:
+	id = 1
+
 def parseGPS(str):
 	if str.find('GGA') > 0:
+		global id
+		print "comprueba datos %s" % id
 		msg = pynmea2.parse(str,check=False)
-		print "Timestamp: %s -- Lat: %s %s -- Lon: %s %s -- Senial: %s %s" % (msg.timestamp,msg.latitude,msg.lat_dir,msg.longitude,msg.lon_dir,msg.gps_qual,msg.num_sats)
-		fecha = msg.timestamp
-		id = host+fecha.strftime('%H%M%S')
-		lat = msg.latitude
-		long = msg.longitude
-		q = msg.gps_qual
+                fecha = datetime.datetime.now
+                #matricula = host
+                fecha = datetime.datetime.now().strftime("%Y%m%d")
+                hora = datetime.datetime.now().strftime("%H%M%S")
+                lat = msg.latitude
+                long = msg.longitude
+                q = msg.gps_qual
+		print "Timestamp: %s --FECHA: %s -- HORA: %s -- Lat: %s %s -- Lon: %s %s -- Senial: %s %s" % (msg.timestamp, fecha,hora,msg.latitude,msg.lat_dir,msg.longitude,msg.lon_dir,msg.gps_qual,msg.num_sats)
 
 		if q == 0:
 			GPIO.output(12, True)
@@ -41,15 +56,17 @@ def parseGPS(str):
 		valores = [
 			"""
 			Insert into LECTURAS (
-			id,fecha,lat,long,calidad_senial,enviado)
-			values(?,?,?,?,?,0)
+			id,matricula,fecha,hora,lat,long,calidad_senial,enviado)
+			values(?,?,?,?,?,?,?,0)
 			"""
 		]
+
 		for sentencia in valores:
-			cursor.execute(sentencia,[id,fecha.strftime('%H%M%S'),lat,long,q])
+			cursor.execute(sentencia,[id,matricula,fecha,hora,lat,long,q])
 			#cursor.execute(sentencia,[id])
 		con.commit()
 		print('datos guardados')
+		id = id + 1
 		time.sleep(10)
 
 serialPort = serial.Serial("/dev/ttyS0", 9600, timeout=0.5)

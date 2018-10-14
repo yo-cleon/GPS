@@ -5,7 +5,7 @@ bd = './data/gps.db'
 con = sqlite3.connect(bd)
 cursor = con.cursor()
 
-q = cursor.execute('select id, lat, long from lecturas')
+q = cursor.execute('select id, lat, long from lecturas order by id ')
 for data in q.fetchall():
 	datos = {
 		'id ' : data[0],
