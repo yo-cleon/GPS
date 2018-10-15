@@ -79,8 +79,14 @@ def parseGPS(str):
 serialPort = serial.Serial("/dev/ttyS0", 9600, timeout=0.5)
 
 while True:
-	str = serialPort.readline()
-	parseGPS(str)
+	try:
+		str = serialPort.readline()
+		parseGPS(str)
+	except Exception as ex:
+		logger.warning(ex)
+		print ('Error:')
+		print(ex)
+		pass
 
 GPIO.output(12, False)
 GPIO.output(16, False)
