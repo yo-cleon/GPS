@@ -26,7 +26,7 @@ try:
 	cursor = con.cursor()
 except Exception as ex:
 	logger.error(ex)
-	print"Error: "
+	print("Error: ")
 	print(ex)
 
 cursor.execute("SELECT count(*) from LECTURAS")
@@ -41,13 +41,12 @@ def parseGPS(str):
 	if str.find('GGA') > 0:
 		global id
 		msg = pynmea2.parse(str,check=False)
-                fecha = datetime.datetime.now
-                fecha = datetime.datetime.now().strftime("%Y%m%d")
-                hora = datetime.datetime.now().strftime("%H%M%S")
-                lat = msg.latitude
-                long = msg.longitude
-                q = msg.gps_qual
-		print "Timestamp: %s --FECHA: %s -- HORA: %s -- Lat: %s %s -- Lon: %s %s -- Senial: %s %s" % (msg.timestamp, fecha,hora,msg.latitude,msg.lat_dir,msg.longitude,msg.lon_dir,msg.gps_qual,msg.num_sats)
+		fecha = datetime.datetime.now().strftime("%Y%m%d")
+		hora = datetime.datetime.now().strftime("%H%M%S")
+		lat = msg.latitude
+		long = msg.longitude
+		q = msg.gps_qual
+		print ("Timestamp: %s --FECHA: %s -- HORA: %s -- Lat: %s %s -- Lon: %s %s -- Senial: %s %s" % (msg.timestamp, fecha,hora,msg.latitude,msg.lat_dir,msg.longitude,msg.lon_dir,msg.gps_qual,msg.num_sats))
 
 		if q == 0:
 			GPIO.output(12, True)
@@ -72,7 +71,7 @@ def parseGPS(str):
 		for sentencia in valores:
 			cursor.execute(sentencia,[id,matricula,fecha,hora,lat,long,q])
 		con.commit()
-		print('datos guardados')
+		print("datos guardados")
 		id = id + 1
 		time.sleep(10)
 
