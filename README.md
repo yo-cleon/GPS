@@ -5,4 +5,4 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 Aplicación desarrollada con Python 2.7
 
 Es necesario la instalación de las librerías: <a href= "https://github.com/Knio/pynmea2">pynmea2</a>:
-<code>https://github.com/Knio/pynmea2</code>
+<pre><code>pip install pynmea2</code></pre>
