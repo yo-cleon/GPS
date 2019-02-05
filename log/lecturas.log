@@ -276,3 +276,35 @@ WARNING: 2018-10-22 13:25:03,298 -  table LECTURAS has no column named long
 WARNING: 2018-10-22 13:25:04,297 -  table LECTURAS has no column named long
 WARNING: 2018-10-22 13:25:05,297 -  table LECTURAS has no column named long
 WARNING: 2018-10-22 13:25:06,297 -  table LECTURAS has no column named long
+WARNING: 2019-01-31 18:33:50,635 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:34:06,631 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:37:24,635 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:37:34,701 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:37:44,775 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:39:24,634 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:39:34,694 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:41:29,633 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:41:39,693 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 18:41:49,756 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 19:12:35,634 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 19:12:45,697 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 19:12:55,759 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 19:13:05,823 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 19:13:15,886 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 19:13:25,949 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-01-31 19:14:27,635 -  global name 'enviarDatos' is not defined
+WARNING: 2019-01-31 19:14:37,693 -  global name 'enviarDatos' is not defined
+WARNING: 2019-01-31 19:14:47,758 -  global name 'enviarDatos' is not defined
+WARNING: 2019-01-31 19:14:57,822 -  global name 'enviarDatos' is not defined
+WARNING: 2019-01-31 19:15:21,618 -  ('could not parse data', 'NGGA,191521.578,,,,,0,00,25.5,,,,,,*7F\r\n')
+WARNING: 2019-02-04 07:49:35,578 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:49:45,641 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:49:55,697 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:50:05,757 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:50:15,814 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:50:25,875 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:53:07,577 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:54:03,580 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:54:13,635 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 07:54:55,579 -  local variable 'enviarDatos' referenced before assignment
+WARNING: 2019-02-04 08:07:52,578 -  global name 'gommands' is not defined

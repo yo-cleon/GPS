@@ -1,14 +1,16 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
+import commands
 import datetime
-import serial
 import pynmea2
+import os
 import RPi.GPIO as GPIO
+import serial
 import socket
 import sqlite3
 import time
-import os
+
 from utils import archivoLog
 
 GPIO.setmode(GPIO.BOARD)
@@ -17,8 +19,8 @@ GPIO.setup(16, GPIO.OUT)
 GPIO.setup(18, GPIO.OUT)
 
 logger = archivoLog.getLogger()
-
 matricula = socket.gethostname()
+enviarDatos = 3
 
 #Conexión a la bbdd y creación del objeto cursor
 try:
@@ -40,6 +42,7 @@ else:
 def parseGPS(str):
 	if str.find('GGA') > 0:
 		global id
+		global enviarDatos
 		msg = pynmea2.parse(str,check=False)
 		fecha = datetime.datetime.now().strftime("%Y%m%d")
 		hora = datetime.datetime.now().strftime("%H%M%S")
@@ -68,11 +71,24 @@ def parseGPS(str):
 			"""
 		]
 
-		for sentencia in valores:
-			cursor.execute(sentencia,[id,matricula,fecha,hora,lat,long,q])
-		con.commit()
-		print("datos guardados")
-		id = id + 1
+		try:
+
+			for sentencia in valores:
+				cursor.execute(sentencia,[id,matricula,fecha,hora,lat,long,q])
+			con.commit()
+			print("datos guardados")
+			id = id + 1
+			if (enviarDatos >= 1):
+				enviarDatos = enviarDatos - 1
+			else:
+				enviarDatos = 3
+				result = commands.getoutput('/usr/bin/python ./enviar_datos.py')
+			print(enviarDatos)
+		except Exception as ex:
+			logger.warning(ex)
+			print('Error al escribir en la bbdd: ')
+			print(ex)
+			pass
 		time.sleep(10)
 
 serialPort = serial.Serial("/dev/ttyS0", 9600, timeout=0.5)

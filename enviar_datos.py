@@ -14,23 +14,24 @@ q = cursor.execute('select matricula, lat, long from lecturas order by ID desc l
 #generamos un archivo json para enviarlo al servidor
 for data in q.fetchall():
 	datos = {
-		"mat" :data[0],
-		"lat" :data[1],
- 		"long":data[2]
+		'matricula':data[0],
+		'latitud':data[2],
+ 		'longitud':data[1]
 	}
-with open('lecturas.json','w') as file:
-	json.dump(datos, file)
-
+print (data)
+#with open('lecturas.json','w') as file:
+#	json.dump(datos, file)
 
 #enviamos la petición al servidor REST
-url = 'http://gestiomar2.dyndns.biz:8881/gps'
+url = 'http://192.168.1.19:8881/gps'
 #with open("lecturas.json","r") as file:
 #	datos = json.load(file)
 
-datos = {"lat": 28.493466666666666, "mat": "0324-BLD", "long": -16.32621}
+#datos = {"matricula": "0324-BLD", "longitud": -16.3262, "latitud": 28.4934666666666661}
 print("Datos a enviar:")
 print(datos)
-r = requests.post(url,datos)
+#payload = {'name' : 'Carlos', 'job' : 'programador'}
+r = requests.post(url, json=datos)
 print(r.status_code)
 if (r.status_code == 200):
 	print("Datos enviados")
