@@ -56,8 +56,21 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
   <br/>
   exit 0
 </code></pre>
-</p> 
+</p>
 
+<p>Hacemos el script ejecutable con el siguiente comando:
+  <pre></code>sudo chmod +x /etc/init.d/gps-init</code></pre>
+</p>
+
+<p>Activamos el arranque automático:
+<pre><code>sudo update-rc.d detector-init defaults</code></pre>
+</p>
+
+<p>Reiniciamos la Raspberry y verificamos que el servicio se ha iniciado correctamente con el comando:
+  <pre></code> sudo service gps-init status</code></pre>
+</p>
+
+<h3>Curiosidades</h3>
 <p>El dispositivo está pensado para instalarlo en un vehículo perteneciente a una flota, por lo que, para identificarlo más facilmente se asigna la matrícula del vehículo como hostname de la Raspberry Pi. 
 <pre></code>sudo nano /etc/hostname</code></pre>
 </p>
