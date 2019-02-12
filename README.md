@@ -18,6 +18,11 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 <p>Para poder controlar el dispositivo de forma remota podemos utilizar algún servicio de DDNS. En este caso, hemos utilizado   NO-IP, siguiendo las indicaciones del enlace: https://www.realdroid.es/2016/10/29/configurar-no-ip-para-raspberry-pi-y-de-paso-que-es-no-ip/
 </p>
 
+<h3>Automatización</h3>
+<p> Para que se inicialice automáticamente la lectura de datos, crearemos un script que lance automáticamente la aplicación. Para ello, ejecutamos el siguiente comando. Esto nos crea un documento en la ruta /etc/init.d/ llamado "gps-ini"
+<pre><code>sudo nano /etc/init.d/gps-init</code></pre>
+</p>
+
 <h3>Curiosidades</h3>
 <p>El dispositivo está pensado para instalarlo en un vehículo perteneciente a una flota, por lo que, para identificarlo más facilmente se asigna la matrícula del vehículo como hostname de la Raspberry Pi. 
 <pre></code>sudo nano /etc/hostname</code></pre>
