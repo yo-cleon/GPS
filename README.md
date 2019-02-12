@@ -23,7 +23,7 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 <pre><code>sudo nano /etc/init.d/gps-init</code></pre>
 </p>
 <p> Dentro del archivo copiamos el siguiente código:
-  `sudo
+  `sudo`
 </p> 
 
 <p>El dispositivo está pensado para instalarlo en un vehículo perteneciente a una flota, por lo que, para identificarlo más facilmente se asigna la matrícula del vehículo como hostname de la Raspberry Pi. 
