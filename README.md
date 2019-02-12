@@ -15,7 +15,7 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 
 <p> Una vez realizado esto, deberemos acceder al archivo de configuración de la raspberry y deberemos habilitar puerto serie y deshabiltar el acceso serial por consola</p>
 
-<p>Para poder controlar el dispositivo de forma remota podemos utilizar algún servicio de DDNS. En este caso, hemos utilizado   NO-IP, siguiendo las indicaciones del enlace: https://www.realdroid.es/2016/10/29/configurar-no-ip-para-raspberry-pi-y-de-paso-que-es-no-ip/
+<p>Para poder controlar el dispositivo de forma remota podemos utilizar algún servicio de DDNS. En este caso, hemos utilizado   NO-IP, siguiendo las indicaciones del enlace: <a href="https://www.realdroid.es/2016/10/29/configurar-no-ip-para-raspberry-pi-y-de-paso-que-es-no-ip/" target="_blank">Configurar No-Ip</a>
 </p>
 
 <h3>Automatización</h3>
