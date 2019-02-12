@@ -25,36 +25,36 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 <p> Dentro del archivo copiamos el siguiente código:
   <pre><code>
   #! /bin/sh
-# /etc/init.d/detector-init
- 
-### BEGIN INIT INFO
-# Provides:----------gps-init
-# Required-Start:----$all
-# Required-Stop:      $remote_fs $syslog
-# Default-Start:         2 3 4 5
-# Default-Stop:         0 1 6
-# Short-Description: Inicio automático GPS
-# Description:            Script para arrancar el lector de gps
-### END INIT INFO
-
-# Dependiendo de los parámetros que se le pasen al programa se usa una opción u otra
-case "$1" in
--start)
----echo "Arrancando gps-init"
--- # Aquí hay que poner el programa que quieras arrancar automáticamente
----sh /home/pi/GPS/iniciar_gps.sh
----;;
--stop)
----echo "Deteniendo gps-init"
-
----;;
--*)
----echo "Modo de uso: /etc/init.d/gps-init {start|stop}"
----exit 1
----;;
-esac
- 
-exit 0
+  # /etc/init.d/detector-init
+  
+  ### BEGIN INIT INFO
+  # Provides:----------gps-init
+  # Required-Start:----$all
+  # Required-Stop:      $remote_fs $syslog
+  # Default-Start:         2 3 4 5
+  # Default-Stop:         0 1 6
+  # Short-Description: Inicio automático GPS
+  # Description:            Script para arrancar el lector de gps
+  ### END INIT INFO
+  
+  # Dependiendo de los parámetros que se le pasen al programa se usa una opción u otra
+  case "$1" in
+   start)
+     echo "Arrancando gps-init"
+  # Aquí hay que poner el programa que quieras arrancar automáticamente
+     sh /home/pi/GPS/iniciar_gps.sh
+     ;;
+   stop)
+     echo "Deteniendo gps-init"
+  
+     ;;
+   *)
+     echo "Modo de uso: /etc/init.d/gps-init {start|stop}"
+     exit 1
+     ;;
+  esac
+  
+  exit 0
 </code></pre>
 </p> 
 
