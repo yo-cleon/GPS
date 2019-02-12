@@ -26,7 +26,7 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
   <pre><code>
   #! /bin/sh
   # /etc/init.d/detector-init
-  
+  <br/>
   ### BEGIN INIT INFO
   # Provides:----------gps-init
   # Required-Start:----$all
@@ -36,7 +36,7 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
   # Short-Description: Inicio automático GPS
   # Description:            Script para arrancar el lector de gps
   ### END INIT INFO
-  
+  <br/>
   # Dependiendo de los parámetros que se le pasen al programa se usa una opción u otra
   case "$1" in
    start)
@@ -46,14 +46,14 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
      ;;
    stop)
      echo "Deteniendo gps-init"
-  
+  <br/>
      ;;
    *)
      echo "Modo de uso: /etc/init.d/gps-init {start|stop}"
      exit 1
      ;;
   esac
-  
+  <br/>
   exit 0
 </code></pre>
 </p> 
