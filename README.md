@@ -73,7 +73,12 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 <a href="https://www.spainlabs.com/foros/tema-TUTORIAL-Como-ejecutar-scripts-al-iniciar-nuestra-Raspberry" target="_blank">Cómo ejecutar scripts al iniciar la Raspberry</aq>.
 
 <h3>Curiosidades</h3>
-<p>El dispositivo está pensado para instalarlo en un vehículo perteneciente a una flota, por lo que, para identificarlo más facilmente se asigna la matrícula del vehículo como hostname de la Raspberry Pi. 
+<p>El dispositivo está pensado para instalarlo en un vehículo perteneciente a una flota, por lo que, para identificarlo más facilmente se asigna la matrícula del vehículo como hostname de la Raspberry Pi. Para ello en primer lugar ejecutamos el código
+<pre><code>sudo nano /etc/hosts</code></pre>
+</p>
+<p>y modificamos la línea que dice <i>“127.0.1.1 raspberrypi”</i>.</p>
+<p>Guardamos los cambios y a continuación ejecutamos el comando:
 <pre></code>sudo nano /etc/hostname</code></pre>
 </p>
+<p>Guardamos nuevamente los cambios y ya disponemos de la matrícula del vehículo asociada al dispositivo GPS</p>
 
