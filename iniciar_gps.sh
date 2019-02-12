@@ -1,4 +1,5 @@
 #!/bin/bash
 
-cd GPS
+sleep 30
+cd /home/pi/GPS
 sudo python gps.py

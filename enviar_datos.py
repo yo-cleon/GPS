@@ -27,10 +27,9 @@ url = 'http://192.168.1.19:8881/gps'
 #with open("lecturas.json","r") as file:
 #	datos = json.load(file)
 
-#datos = {"matricula": "0324-BLD", "longitud": -16.3262, "latitud": 28.4934666666666661}
 print("Datos a enviar:")
 print(datos)
-#payload = {'name' : 'Carlos', 'job' : 'programador'}
+#Envio de datos al servidor rest
 r = requests.post(url, json=datos)
 print(r.status_code)
 if (r.status_code == 200):
