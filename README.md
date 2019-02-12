@@ -70,6 +70,8 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
   <pre></code> sudo service gps-init status</code></pre>
 </p>
 
+<a href="https://www.spainlabs.com/foros/tema-TUTORIAL-Como-ejecutar-scripts-al-iniciar-nuestra-Raspberry" target="_blank">Cómo ejecutar scripts al iniciar la Raspberry</aq>.
+
 <h3>Curiosidades</h3>
 <p>El dispositivo está pensado para instalarlo en un vehículo perteneciente a una flota, por lo que, para identificarlo más facilmente se asigna la matrícula del vehículo como hostname de la Raspberry Pi. 
 <pre></code>sudo nano /etc/hostname</code></pre>
