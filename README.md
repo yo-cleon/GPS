@@ -22,9 +22,45 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 <p> Para que se inicialice automáticamente la lectura de datos, crearemos un script que lance automáticamente la aplicación. Para ello, ejecutamos el siguiente comando. Esto nos crea un documento en la ruta /etc/init.d/ llamado "gps-ini"
 <pre><code>sudo nano /etc/init.d/gps-init</code></pre>
 </p>
-<cite>hols</cite>
+<p> Dentro del archivo copiamos el siguiente código:
+  <pre>
+  <code>
+  #! /bin/sh
+# /etc/init.d/gps-init
+ 
+### BEGIN INIT INFO
+# Provides:          gps-init
+# Required-Start:    $all
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Inicio automático gps
+# Description:       Script para arrancar el lector de gps
+### END INIT INFO
+ 
+ 
+# Dependiendo de los parámetros que se le pasen al programa se usa una opción u otra
+case "$1" in
+ start)
+   echo "Arrancando gps-init"
+   # Aquí hay que poner el programa que quieras arrancar automáticamente
+   sh /home/pi/GPS/iniciar_gps.sh
+   ;;
+ stop)
+   echo "Deteniendo gps-init"
+ 
+   ;;
+ *)
+   echo "Modo de uso: /etc/init.d/gps-init {start|stop}"
+   exit 1
+   ;;
+esac
+ 
+exit 0
+  </code>
+  </pre
+</p>
 
-<h3>Curiosidades</h3>
 <p>El dispositivo está pensado para instalarlo en un vehículo perteneciente a una flota, por lo que, para identificarlo más facilmente se asigna la matrícula del vehículo como hostname de la Raspberry Pi. 
 <pre></code>sudo nano /etc/hostname</code></pre>
 </p>
