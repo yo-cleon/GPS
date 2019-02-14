@@ -4,6 +4,8 @@ Creación de una aplicación para la lectura de datos gps utilizando una raspber
 
 <h3>Requerimientos</h3>
 <ul>
+  <li> Raspberry Pi 3 B+</li>
+  <li> Raspbian Strech. En este caso se ha instalado utilizando Noobs. Puedes descargarlo desde <a href="https://www.raspberrypi.org/downloads/noobs/" target="_blank">aquí<a>.</li>
   <li> Python 2.7</li>
   <li> Es necesario la instalación de la librería <a href= "https://github.com/Knio/pynmea2">pynmea2</a>:
   <pre><code>pip install pynmea2</code></pre></li> 
