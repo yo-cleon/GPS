@@ -30,7 +30,7 @@ except Exception as ex:
 	print("Error: ")
 	print(ex)
 
-cursor.execute("SELECT count(*) from LECTURAS")
+cursor.execute("SELECT max(id) from LECTURAS")
 id = cursor.fetchone()[0]
 if id != 0:
 	id += 1
