@@ -4,6 +4,7 @@
 import json
 import requests
 import sqlite3
+import os
 
 #conexion a la bbdd y obtención del útimo regristro
 bd = './data/gps.db'
@@ -27,11 +28,15 @@ url = 'http://192.168.1.19:8881/gps'
 #with open("lecturas.json","r") as file:
 #	datos = json.load(file)
 
-print("Datos a enviar:")
-print(datos)
-#Envio de datos al servidor rest
-r = requests.post(url, json=datos)
-print(r.status_code)
-if (r.status_code == 200):
-	print("Datos enviados")
-print(r.text)
+response = os.system("ping -c 1 192.168.1.19")
+if (response == 0):
+	print("Datos a enviar:")
+	print(datos)
+	#Envio de datos al servidor rest
+	r = requests.post(url, json=datos)
+	print(r.status_code)
+	if (r.status_code == 200):
+		print("Datos enviados")
+	print(r.text)
+else :
+	print("no hay conexión con el servidor")

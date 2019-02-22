@@ -30,14 +30,15 @@ except Exception as ex:
 	print("Error: ")
 	print(ex)
 
-cursor.execute("SELECT max(id) from LECTURAS")
+#Asignacion ID tras el inicio de la Raspberry
+cursor.execute("SELECT max(ID) from LECTURAS")
 id = cursor.fetchone()[0]
 if id != 0:
 	id += 1
-
 else:
 	id = 1
 
+#Parseo de lo leido, almacenamiento y envio de datos
 def parseGPS(str):
 	if str.find('GGA') > 0:
 		global id
@@ -70,7 +71,6 @@ def parseGPS(str):
 		]
 
 		try:
-
 			for sentencia in valores:
 				cursor.execute(sentencia,[id,matricula,fecha,hora,lat,long,q])
 			con.commit()
@@ -83,10 +83,10 @@ def parseGPS(str):
 			print('Error al escribir en la bbdd: ')
 			print(ex)
 			pass
-		time.sleep(10)
+		time.sleep(15)
 
+#Procedimiento para la lectura de los datos de GPS
 serialPort = serial.Serial("/dev/ttyS0", 9600, timeout=0.5)
-
 while True:
 	try:
 		str = serialPort.readline()
@@ -96,9 +96,3 @@ while True:
 		print ('Error:')
 		print(ex)
 		pass
-
-GPIO.output(12, False)
-GPIO.output(16, False)
-GPIO.output(18, False)
-
-
